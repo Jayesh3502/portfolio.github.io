@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Personal Portfolio Website Design | Codehal</title>
+ 
+    <!-- box icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+ 
+    <!-- custom css -->
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   border: none;
+   outline: none;
+   scroll-behavior: smooth;
+   font-family: "Poppins", sans-serif;
+ }
+  
+ :root {
+   --bg-color: #1f242d;
+   --second-bg-color: #323946;
+   --text-color: #fff;
+   --main-color: #9D00FF ;
+ }
+  
+ *::selection {
+   background: #9D00FF ;
+   color: #1f242d;
+ }
+  
+ html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+ }
+  
+ body {
+   background: #1f242d;
+   color: #fff;
+ }
+ 
+ section {
+     min-height: 100vh;
+     padding: 10rem 9% 2rem; 
+ }
+ 
+ .header{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     padding: 2rem 9%;
+     background: #1f242d;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     z-index: 100;
+ }
+ 
+ .logo { font-size: 2.5rem;
+     color: #fff;
+     font-weight: 600;
+     cursor: default;
+     }
+ .navbar a {
+     font-size: 1.7rem;
+     color: #fff;
+     margin-left: 4rem;
+     transition: .3s;
+     align-items: end;
+ }
+ .navbar a:hover,
+ .navbar a.active {
+     color: #9D00FF ;
+     }
+ 
+ #menu-icon {
+     font-size: 3.6rem;
+     color: #fff;
+     display: none;
+ }
+ 
+ .home{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ .home-img img{
+     width: 32vw;
+ }
+ 
+ .home-content h4{
+     font-size: 3.2rem;
+     font-weight: 700;
+ }
+ 
+ .home-content h4:nth-of-type(2) {
+     margin-bottom: 2rem;
+ 
+ }
+ 
+ span {
+     color: #9D00FF;
+ }
+ 
+ .home-content h2{
+     font-size: 5.6rem;
+     font-weight: 700;
+     line-height: 1.3;
+ }
+ 
+ .home-content p{
+     font-size: 1.6rem;
+ }
+ 
+ .social-media a{
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     width: 4rem;
+     height: 4rem;
+     background: transparent;
+     border: .2rem solid #9D00FF;
+     border-radius: 50%;
+     font-size: 2.5rem;
+     color : #9D00FF;
+     margin : 3rem 1.5rem 3rem;
+     transition: .5s ease;
+ }
+ 
+ .social-media a:hover {
+     background: #9D00FF;
+     color : #323946;
+     box-shadow: 0 0 1rem #9D00FF;
+ }
+ 
+ .btn {
+     display: inline-block;
+     padding: 1rem 2.8rem;
+     background: #9D00FF;
+     border-radius: 4rem;
+     box-shadow: 0 0 1rem #9D00FF;
+     font-size: 1.8rem;
+     color: #323946;
+     letter-spacing: .1rem;
+     font-weight: 600;
+ }
+ 
+ .btn:hover {
+     box-shadow: none;
+ }
+ 
+ .about {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 2rem;
+     background: #323946;
+ }
+ 
+ .about-img img {
+     width: 30vw;
+ }
+ 
+ .heading{
+     text-align: center;
+     font-size: 4.5rem;
+ 
+ }
+ 
+ .about-content h3 {
+     text-align: left;
+     line-height: 1.2;
+ 
+ }
+ 
+ .about-content h4 {
+     font-size: 2.6rem;
+ }
+ 
+ .about-content p{
+     font-size: 1.6rem;
+     margin: 2rem 0 3rem;
+ }
+ 
+ .ts h2 {
+     margin-bottom: 5rem;
+ }
+ 
+ .ts-container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 2rem;
+ }
+ 
+ .ts-container .ts-box {
+     flex: 1 1 30rem;
+     background: #323946;
+     padding: 3rem 2rem 4rem;
+     border-radius: 2rem;
+     text-align: center;
+     border: .2rem solid #1f242d;
+     transition: .5s ease;
+ }
+ 
+ .ts-container .ts-box:hover {
+     border-color: #9D00FF;
+     transform: scale(1.02);
+ }
+ 
+ .ts-box i{
+     font-size: 7rem;
+     color: #9D00FF;
+ }
+ 
+ .ts-box h3 {
+     font-size: 2.6rem;
+ }
+ 
+ .portfolio {
+     background: #323946;
+ }
+ .portfolio h2 {
+     margin-bottom: 4rem;
+ }
+ 
+ .portfolio-container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     align-items: center;
+     gap: 2.5rem;
+ }
+ 
+ .portfolio-container .portfolio-box {
+     position: relative;
+     border-radius: 2rem;
+     box-shadow: 0 0 1rem #1f242d;
+     overflow: hidden;
+     display: flex;
+ }
+ 
+ .portfolio-box img{
+     width: 100%;
+     transition: .5s ease;
+ }
+ 
+ .portfolio-box:hover img {
+     transform: scale(1.1);
+ }
+ 
+ .portfolio-box .portfolio-layer {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(rgba(0, 0, 0, .1), #9D00FF);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     text-align: center;
+     padding: 0 4rem;
+     transform: translateY(100%);
+     transition: .5s ease;
+ }
+ 
+ .portfolio-box:hover .portfolio-layer {
+     transform: translateY(0);
+ }
+ 
+ .portfolio-layer h4{
+     font-size: 3rem;
+ }
+ 
+ .portfolio-layer p {
+     font-size: 1.7rem;
+     margin: .3rem 0 1rem;
+ }
+ 
+ .portfolio-layer a {
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     width: 5rem;
+     height: 5rem;
+     background: #fff;
+     border-radius: 50%;
+ }
+ 
+ .portfolio-layer a i {
+     font-size: 2rem;
+     color :#323946
+ }
+ 
+ .contact h2{
+     margin-bottom: 3rem;
+ }
+ 
+ .contact form{
+     max-width: 70rem;
+     margin: 1rem auto;
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+ 
+ .contact form .input-box{
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+ 
+ .contact form .input-box input,
+ .contact form textarea {
+     width: 100%;
+     padding: 1.5rem;
+     font-size: 1.6rem;
+     color: #fff;
+     background: #323946;
+     border-radius: .8rem;
+     margin: .7rem 0;
+ }
+ 
+ .contact form .input-box input{
+     width: 49%;
+ }
+ 
+ .contact form textarea {
+     resize: none;
+ }
+ 
+ .contact form .btn {
+     margin-top: 2rem;
+     cursor: pointer;
+ }
+ 
+ .footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     padding: 2rem 9%;
+     background: #323946;
+ }
+ 
+ .footer-text p {
+     font-size: 1.6rem;
+ }
+ 
+ .footer-iconTop a{
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     padding: .8rem;
+     background: #9D00FF;
+     border-radius: .8rem;
+     transition: .5s ease;
+ }
+ 
+ .footer-iconTop a:hover {
+     box-shadow: 0 0 1rem #9D00FF;
+ }
+ 
+ .footer-iconTop a i {
+     font-size: 2.4rem;
+     color: #323946;
+ }
+    </style>
+  </head>
+ 
+  <body>
+    <!-- header design -->
+    <header class="header">
+      <a href="#" class = "logo">PortFolio</a>
+      <i class='bx bx-menu' id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>"
+        <a href="#about">About</a>
+        <a href="#ts">Tech Stack</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+ 
+    <!-- home section design -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h4>Hello, It's Me</h4>
+        <h2>Jayesh Mehta</h2>
+        <h4>And I'm a <span>Front-end Developer</span></h3>
+        <p>As an avid learner and versatile professional, I thrive in the realms of full stack web development, Python programming, and competitive coding. 
+          Constantly expanding my skills and pushing boundaries, I bring innovative solutions to life with my expertise and commitment to excellence.
+        </p>
+        <div class="social-media">
+          <a href="https://www.instagram.com/_m_jayesh/"><i class='bx bxl-instagram' ></i></a>
+          <a href="https://www.linkedin.com/in/jayesh-mehta03052002/"><i class='bx bxl-linkedin-square' ></i></a>
+          <a href="https://github.com/Jayesh3502"><i class='bx bxl-github'></i></a>
+          <a href="#"><i class='bx bxl-twitter' ></i></a>
+        </div>
+        <a href="#" class="btn">Download CV</a>
+      </div>
+      <div class="home-img">
+        <img src="/Users/jayeshmehta/jayesh-portfolio/trial3.png" alt="">
+      </div>
+    </section>
+ 
+    <!-- about section design -->
+    <section  class="about" id="about">
+      <div class = "about-img">
+        <img src="/Users/jayeshmehta/jayesh-portfolio/trial5.png" alt="">
+      </div>
+      <div class="about-content">
+        <h3 class="heading">About <span>Me</span></h3>
+        <h4>Frontend Web Developer</h4>
+        <p>Hello, and welcome to my portfolio website! I am a fourth-year B.Tech student in Computer Science Engineering at VIT Bhopal. With a strong foundation in this field, I have acquired a diverse set of skills and knowledge throughout my academic journey. Through my projects and experiences, I have developed a deep passion for technology and its potential to make a positive impact. Join me as I showcase my work and share my journey in the world of computer science.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </section>
+ 
+    <!-- resume section design -->
+    <section class="ts" id="ts">
+      <h2 class="heading">Tech <span>Stack</span></h2>
+
+      <div class="ts-container">
+        <div class="ts-box">
+          <i class='bx bxl-html5' ></i>
+          <h3>HTML</h3>
+
+        </div>
+        
+        <div class="ts-box">
+          <i class='bx bxl-tailwind-css'></i>
+          <h3>TailWind CSS</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <i class='bx bxl-javascript' ></i>
+          <h3>JavaScript</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <i class='bx bxl-react' ></i>
+          <h3>React</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <i class='bx bxl-nodejs' ></i>
+          <h3>NodeJS</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <i class='bx bxl-mongodb' ></i>
+          <h3>MongoDb</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <img src="/Users/jayeshmehta/jayesh-portfolio/three_js-icon.png" alt="" height="68px" width="70px">
+          <h3>ThreeJS</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <h3>ExpressJS</h3>
+
+        </div>
+
+        <div class="ts-box">
+          <i class='bx bxl-python'></i>    
+          <h3>Python</h3>
+
+        </div>
+
+        <div class="ts-box">
+        <h3>NoSql</h3>
+
+        </div>
+      </div>
+    </section>
+
+
+ 
+    <!-- portfolio section design -->
+    <section vlass="portfolio" id="portfolio">
+      <h2 class="heading">Latest <span>Project</span><h2>
+      <div class="portfolio-container">
+        <div class="portfolio-box">
+          <img src="/Users/jayeshmehta/jayesh-portfolio/trend-setter.png" alt="">
+          <div class="portfolio-layer">
+          <h4>Trend-Setter</h4>
+          <p>3D T-Shirt Customization Site</p>
+          <a href="https://jayesh3502.github.io/tshirt-customizer/"><i class='bx bx-link-external'></i></a></div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="/Users/jayeshmehta/jayesh-portfolio/kharchi.png" alt="">
+          <div class="portfolio-layer">
+          <h4>Kharchi...</h4>
+          <p>Expense Management App</p>
+          <a href="https://github.com/Jayesh3502/Kharchi"><i class='bx bx-link-external'></i></a></div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="/Users/jayeshmehta/jayesh-portfolio/y-sum.png" alt="">
+          <div class="portfolio-layer">
+          <h4>YouTube-Notes</h4>
+          <p>Transcript Summarizer</p>
+          <a href="https://github.com/Jayesh3502/y-sum"><i class='bx bx-link-external'></i></a></div>
+        </div>
+
+        <!-- <div class="portfolio-box">
+          <img src="/Applications/portfolio_site/trend-setter.png" alt="">
+          <div class="portfolio-layer">
+          <h4>Web App</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente optio laudantium,</p>
+          <a href="#"><i class='bx bx-link-external'></i></a></div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="/Applications/portfolio_site/trend-setter.png" alt="">
+          <div class="portfolio-layer">
+          <h4>Web App</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente optio laudantium,</p>
+          <a href="#"><i class='bx bx-link-external'></i></a></div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="/Applications/portfolio_site/trend-setter.png" alt="">
+          <div class="portfolio-layer">
+          <h4>Web App</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente optio laudantium,</p>
+          <a href="#"><i class='bx bx-link-external'></i></a></div>
+        </div> -->
+      </div>
+    </section>
+ 
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Email Address">
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Mobile Number">
+          <input type="text" placeholder="Email Subject">
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+      </form>
+    </section>
+ 
+    <!-- footer design -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Made with ❤️ by Jayesh Mehta</p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+      </div>
+    </footer>
+ 
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+ 
+    <!-- typed js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+ 
+    <!-- custom js -->
+    <script>
+        /*==================== toggle icon navbar ====================*/
+ 
+/*==================== scroll sections active link ====================*/
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+ 
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset +height ) {
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href* = ' + id + ']').classList.add('active');
+            });
+        };
+    });
+    /*==================== sticky navbar ====================*/
+    /*==================== remove toggle icon and navbar when click navbar link (scroll) ====================*/
+  };
+   
+  /*==================== scroll reveal ====================*/
+   
+  /*==================== typed js ====================*/
+    </script>
+  </body>
+</html>
